@@ -29,7 +29,8 @@ function ReactTable() {
     try {
       return MOCK_DATA.filter((Data) => Data[catogery].match(re));
     } catch (error) {
-      return MOCK_DATA.filter((Data)=> Data[catogery][0]==ColumnFilter)
+      const le=new RegExp(ColumnFilter)
+      return MOCK_DATA.filter((Data)=> Data[catogery]== ColumnFilter || Data[catogery][0] == ColumnFilter)
     }
   }, [ColumnFilter]);
   const TableOptions = useTable(
