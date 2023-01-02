@@ -22,7 +22,7 @@ function ReactTable() {
   const columns = useMemo(() => COLUMNS, []);
   console.log("succesde",console.log(catogery,ColumnFilter));
   const data = useMemo(() => {
-    if (ColumnFilter == "" && catogery== "") {
+    if (ColumnFilter == "" && catogery== "" || ColumnFilter == "") {
       return MOCK_DATA;
     }
     const re = new RegExp(ColumnFilter, "i");
