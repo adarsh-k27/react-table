@@ -18,11 +18,18 @@ import GlobalContext from "../context";
 function ReactTable() {
   // const re=new RegExp("ca","i")
   // const FILTERED=
-  const { ColumnFilter } = useContext(GlobalContext).state;
+  const { ColumnFilter,catogery } = useContext(GlobalContext).state;
   const columns = useMemo(() => COLUMNS, []);
+  console.log("succesde",console.log(catogery,ColumnFilter));
   const data = useMemo(() => {
-    if(ColumnFilter==""){
+    if (ColumnFilter == "" && catogery== "") {
       return MOCK_DATA;
+    }
+    const re = new RegExp(ColumnFilter, "i");
+    try {
+      return MOCK_DATA.filter((Data) => Data[catogery].match(re));
+    } catch (error) {
+      return MOCK_DATA.filter((Data)=> Data[catogery][0]==ColumnFilter)
     }
   }, [ColumnFilter]);
   const TableOptions = useTable(

@@ -9,7 +9,9 @@ export const UserReducer=(state,action)=>{
         case 'ADD':{
             return{
                 ...state,
-                ColumnFilter:action.payload
+                ColumnFilter:action.payload.filter,
+                catogery:action.payload.catogery
+
             }
         }
         default:return {}

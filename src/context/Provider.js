@@ -6,6 +6,7 @@ import {
 } from './reducer'
 let initialState={
     ColumnFilter:"",
+    catogery:"",
 }
 function Provider({children}) {
     const [state, dispatch] = useReducer(UserReducer, initialState)
